@@ -1,0 +1,28 @@
+فار  باستخدام Base64 = { _keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 + / =" ، ترميز : وظيفة ( المدخلات ) { فار  الناتج = "" ؛ var  chr1 ، chr2 ، chr3 ، enc1 ، enc2 ، enc3 ، enc4 ؛ var  i = 0 ؛ الإدخال = Base64 . _utf8_encode ( إدخال ) ؛ في حين( i < input . length ) { chr1 = input . charCodeAt ( i ++ ) ؛ chr2 = إدخال . charCodeAt ( i ++ ) ؛ chr3 = إدخال . charCodeAt ( i ++ ) ؛ enc1 = chr1 >> 2 ؛ enc2 = ( ( chr1 & 3 ) << 4 ) |( chr2 >> 4 ) ؛ enc3 = ( ( chr2 & 15 ) << 2 ) | ( chr3 >> 6 ) ؛ enc4 = chr3 & 63 ؛ إذا ( isNaN ( chr2 ) ) { enc3 = enc4 = 64 ؛ } else  if ( isNaN ( chr3 ) ) { enc4 = 64؛ }
+الإخراج = الإخراج +  هذا . _keyStr . charAt ( enc1 ) +  هذا . _keyStr . charAt ( enc2 ) +  هذا . _keyStr . charAt ( enc3 ) +  هذا . _keyStr . charAt ( enc4 ) ؛ }
+عودة  الانتاج . } ، فك الشفرة : function ( input ) { var  output = "" ؛ فار  chr1 ، chr2 ، chr3 ؛ var  enc1 ، enc2 ، enc3 ، enc4 ؛ var  i = 0 ؛ المدخلات = المدخلات . استبدل ( / [ ^ A-Za-z0-9 \ + \ / \ = ] / g ، "" )؛ بينما ( i < input . length ) { enc1 = هذا . _keyStr . indexOf ( المدخلات . charAt ( i ++ ) ) ؛ enc2 = هذا . _keyStr . indexOf ( المدخلات . charAt ( i ++ ) ) ؛ enc3 = هذا . _keyStr . indexOf ( المدخلات .charAt ( i ++ ) ) ؛ enc4 = هذا . _keyStr . indexOf ( المدخلات . charAt ( i ++ ) ) ؛ chr1 = ( enc1 << 2 ) | ( enc2 >> 4 ) ؛ chr2 = ( ( enc2 & 15 ) << 4 ) | ( enc3 >> 2 ) ؛ chr3= ( ( enc3 & 3 ) << 6 ) | enc4 ؛ الإخراج = الإخراج +  سلسلة . fromCharCode ( chr1 ) ؛ إذا ( enc3 ! = 64 ) { الإخراج = الإخراج +  سلسلة . fromCharCode ( chr2 ) ؛ }
+إذا ( enc4 ! = 64 ) { الإخراج = الإخراج +  سلسلة . fromCharCode ( chr3 ) ؛ } }
+الإخراج = Base64 . _utf8_decode ( الإخراج ) ؛ عودة  الانتاج . } ، _utf8_encode : دالة ( سلسلة ) { سلسلة = سلسلة . استبدل ( / \ r \ n / g ، "\ n" ) ؛ var  utftext = "" ؛ لـ ( var  n = 0 ؛ n < string . length ؛ n++ ) { var  c = string . charCodeAt ( n ) ؛ إذا ( c < 128 ) { utftext + = String . fromCharCode ( ج ) ؛ }
+else  if ( ( c > 127 ) && ( c < 2048 ) ) { utftext + = String . fromCharCode ( ( c >> 6 ) | 192 ) ، utftext + = سلسلة . fromCharCode ( ( c & 63 ) | 128 ) ؛ }
+آخر { utftext + = String . fromCharCode ( ( c >> 12 ) | 224 ) ؛ utftext + = سلسلة . fromCharCode ( ( ( c >> 6 ) & 63 ) | 128 ) ؛ utftext + = سلسلة . fromCharCode ( ( c & 63 ) | 128 ) ؛ } }
+إرجاع  النص ؛ } ، _utf8_decode : function ( utftext ) { var  string = "" ؛ var  i = 0 ؛ var  c = c1 = c2 = 0 ؛ بينما ( i < utftext . length ) { c = utftext . charCodeAt ( i ) ؛ إذا ( c < 128 ){ سلسلة + = سلسلة . fromCharCode ( ج ) ؛ أنا ++ ؛ }
+وإلا  إذا ( ( c > 191 ) && ( c < 224 ) ) { c2 = utftext . charCodeAt ( i +  1 ) ؛ سلسلة + = سلسلة . fromCharCode ( ( ( c & 31 ) << 6 ) | ( c2 & 63 ) ) ؛ أنا + = 2 ؛ }
+آخر { c2 = utftext . charCodeAt ( i +  1 ) ؛ c3 = النص المطلق . charCodeAt ( i +  2 ) ؛ سلسلة + = سلسلة . fromCharCode ( ( ( c & 15 ) << 12 ) | ( ( c2 & 63 ) << 6 ) | ( c3 & 63 ) )؛ أنا + = 3 ؛ } }
+عودة  سلسلة . } }
+var  encode = المستند . getElementById ( 'encode' ) ، فك الترميز = المستند . getElementById ( 'فك الشفرة' ) ، الإخراج = المستند . getElementById ( 'الإخراج' ) ، الإدخال = المستند . getElementById ( "إدخال" ) ؛ var  User_ID = "" ؛ var  protected_links = "" ؛ var  a_to_va=0;var a_to_vb=0;var a_to_vc="";function auto_safelink(){auto_safeconvert();}
+وظيفة  auto_safeconvert ( ) { var  a_to_vd = نافذة . الموقع . اسم المضيف . إذا ( protected_links =! "" && ! protected_links . مباراة ( a_to_vd ) ) { protected_links + = "" +  a_to_vd . } else  if ( protected_links == "" )
+{ protected_links = a_to_vd ؛ }
+var  a_to_ve = "" ؛ var  a_to_vf = new  Array ( ) ، var  a_to_vg = 0 ؛ a_to_ve = المستند . getElementsByTagName ( "أ" ) ، a_to_va = a_to_ve . الطول . a_to_vf = a_to_fa ( ) ، a_to_vg = a_to_vf . الطول . var  a_to_vh = false ؛ فار  ي= 0 ؛ var  a_to_vi = "" ؛ لـ ( var  i = 0 ؛ i < a_to_va ؛ i ++ )
+{ a_to_vh = خطأ ، ي = 0 ؛ بينما ( a_to_vh == false && j < a_to_vg )
+{ a_to_vi = a_to_ve [ i ] . href . إذا ( a_to_vi . match ( a_to_vf [ j ] ) || ! a_to_vi || ! a_to_vi . match ( "http" ) )
+{ a_to_vh = صحيح ؛ }
+ي ++ ؛ }
+إذا ( a_to_vh == خطأ )
+{ var  encryptedUrl = Base64 . ترميز ( a_to_vi ) ؛ a_to_ve [ i ] . href = "github.com؟url=" +  encryptedUrl ؛ a_to_ve [ i ] . rel = "nofollow" ؛ a_to_vb ++ ؛ a_to_vc + = i + ":::" +  a_to_ve [ i ] . href + "\ n" ؛ } }
+var  a_to_vj = المستند . getElementById ( "anonyminized" ) ؛ var  a_to_vk = المستند . getElementById ( "found_links" ) ؛ إذا ( a_to_vj )
+{ a_to_vj . innerHTML + = a_to_vb ؛ }
+إذا ( a_to_vk )
+{ a_to_vk . innerHTML + = a_to_va ؛ } }
+وظيفة  a_to_fa ( )
+{ var  a_to_vf = new  Array ( ) ؛ Prot_links = روابط_ محمية . استبدال ( "" ، "" ) ؛ a_to_vf = الروابط المحمية . انقسام ( "،" ) ؛ عودة  a_to_vf ؛ }
+auto_safelink ( ) ،
